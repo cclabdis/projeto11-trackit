@@ -1,24 +1,29 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { GlobalStyle } from "./App.styles";
+import Login from "./Pages/Login";
+import Cadastro from "./Pages/Cadastro";
+import Hoje from "./Pages/Hoje";
+import Habitos from "./Pages/Habitos";
+import Historico from "./Pages/Historico";
 
-import 
+import AppProvider from "./AppContext/Provider";
+import GlobalStyle from "./Reset";
 
-function App() {
-
-   return (
+export default function App() {
+  return (
+    <>
     <BrowserRouter>
-      <GlobalStyle />
-      <Header />
-      // <Routes>
-      //   <Route path="/" element={<Login/>}></Route>
-      //   <Route path="/cadastro" element={<Cadastro />}></Route>
-      //   <Route path="/habitos" element={<Habitos />}></Route>
-      //   <Route path="/hoje" element={<Hoje />}></Route>
-      //   <Route path="/historico" element={<Historico />}></Route>
-      // </Routes>
+    <GlobalStyle/>
+    <AppProvider>
+    <Routes>
+      <Route path='/' element={<Login/>}/>
+      <Route path='/cadastro' element={<Cadastro/>}/>
+      <Route path='/hoje' element={<Hoje/>}/>
+      <Route path='/habitos' element={<Habitos/>}/>
+      <Route path='/historico' element={<Historico/>}/>
+    </Routes>
+    </AppProvider>
     </BrowserRouter>
+    </>
   );
-  
 }
 
-export default App;
