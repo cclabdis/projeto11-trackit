@@ -10,12 +10,12 @@ export default function CardSalvo(){
     const [loading, setLoading] = useState(false)
     const {setSave} = useContext(AppContext)
     const {config} = useContext(AppContext)
-    const {nomeH} = useContext(AppContext)
-    const {setnomeH} = useContext(AppContext)
+    const {tarefa} = useContext(AppContext)
+    const {settarefa} = useContext(AppContext)
     const {dias} = useContext(AppContext)
     const {setDias} = useContext(AppContext)
-    const {setReloadV} = useContext(AppContext)
-    const {reloadV} = useContext(AppContext)
+    const {setreload} = useContext(AppContext)
+    const {reload} = useContext(AppContext)
     function salvarDia(i){
         if(dias.includes(i)){
             const rer = dias.filter(j => j!==i)
@@ -30,8 +30,8 @@ export default function CardSalvo(){
     function succes(){
         setSave('')
         setLoading(false)
-        setReloadV(reloadV+1)
-        setnomeH('')
+        setreload(reload+1)
+        settarefa('')
         setDias([])
     }
     function fail(e){
@@ -39,7 +39,7 @@ export default function CardSalvo(){
         alert(e.response.data.message)
     }
     function salvarHabito(){
-        if(nomeH === ''){
+        if(tarefa === ''){
             alert('Escreva o nome do hábito')
             return
         }
@@ -49,7 +49,7 @@ export default function CardSalvo(){
         }
         setLoading(true)
         const obj = {
-            name: nomeH,
+            name: tarefa,
             days: dias 
         }
         const promise = axios.post('https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits', obj, config)
@@ -59,7 +59,7 @@ export default function CardSalvo(){
     return(
     <Card data-test="habit-create-container">
         <DivSemana>
-            <input data-test="habit-name-input" disabled={loading} type='text' value={nomeH} onChange={(e) => setnomeH(e.target.value)} placeholder='nome do hábito'/>
+            <input data-test="habit-name-input" disabled={loading} type='text' value={tarefa} onChange={(e) => settarefa(e.target.value)} placeholder='nome do hábito'/>
             <div>
 
 

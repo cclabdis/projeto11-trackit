@@ -10,7 +10,7 @@ import AppContext from "../../AppContext/Context";
 import { Cont } from './Login.styled';
 
 export default function Login(){
-    const {setTok} = useContext(AppContext)
+    const {setToken} = useContext(AppContext)
     const {setIm} = useContext(AppContext)
     const [loading, setLoading] = useState(false)
     const [email, setEmail] = useState('')
@@ -21,7 +21,7 @@ export default function Login(){
         setLoading(false)
     }
     function success(e){
-        setTok(e.data.token)
+        setToken(e.data.token)
         setIm(e.data.image)
         navigate('/hoje')
     }
@@ -45,7 +45,7 @@ export default function Login(){
                 <input data-test="password-input" required value={pass} onChange={(e) => setPass(e.target.value)} disabled={loading} type='password' placeholder="senha"/>
                 <button data-test="login-btn" disabled={loading}>{loading ? <ThreeDots height='20px' color='#ffffff'/> : 'Entrar'}</button>
             </form>
-            <Link data-test="signup-link" to='/cadastro'>Não tem uma conta? Cadastre-se!</Link>
+            <Link data-reste="signup-btn"  data-test="signup-link" to='/cadastro'>Não tem uma conta? Cadastre-se!</Link>
         </Cont>
     )
 }

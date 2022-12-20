@@ -42,7 +42,7 @@ export default function Cadastro(){
                 <input data-test="user-image-input" required value={foto} onChange={(e) => setFoto(e.target.value)} disabled={loading} type='url' placeholder="foto"/>
                 <button data-test="Signup-btn" disabled={loading}>{loading ? <ThreeDots height='20px' color='#ffffff'/> : 'Cadastrar'}</button>
             </form>
-            <Link data-test="login-link" to='/'>Já tem uma conta? Faça login!</Link>
+            <Link data-reste="signup-btn" data-test="login-link" to='/'>Já tem uma conta? Faça login!</Link>
         </Cont>
     )
 }

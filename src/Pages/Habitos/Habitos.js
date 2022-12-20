@@ -13,13 +13,17 @@ export default function Habitos(){
     const {config} = useContext(AppContext)
     const {setSave} = useContext(AppContext)
     const {save} = useContext(AppContext)
-    const {reloadV} = useContext(AppContext)
+    const {reload} = useContext(AppContext)
     const [cards, setCards] = useState([])
+
+
     useEffect(() => {
         const promise = axios.get('https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits', config)
         promise.then((e) => setCards(e.data))
         promise.catch((e) => console.log(e.response.data.message))
-    }, [reloadV])
+    }, [reload])
+
+
     function abrir(){
         setSave(<CardSalvo />)
     }
@@ -41,7 +45,7 @@ export default function Habitos(){
         <GlobalStyle/>
         <Header/>
         <Cont>
-            <Create><h1>Meus hábitos</h1><button onClick={abrir}>+</button></Create>
+            <Create><h1 data-test="habit-create-cancel-btn">Meus hábitos</h1><button onClick={abrir}>+</button></Create>
             {save}
             {cards.map((i) => <CardHabito id={i.id} key={i.id} name={i.name} days={i.days}/>)}
         </Cont>

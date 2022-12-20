@@ -7,13 +7,13 @@ import AppContext from "../../AppContext/Context";
 import {Bar} from "./Menu.styled";
 
 export default function Menu(){
-    const {hojeFeitos} = useContext(AppContext)
-    const {hojeTotal} = useContext(AppContext)
+    const {Feito} = useContext(AppContext)
+    const {diaFeito} = useContext(AppContext)
     const navigate = useNavigate()
     return (
         <Bar data-test="menu">
             <p data-test="habit-link" onClick={() => navigate('/habitos')}>Hábitos</p>
-            <button data-test="today" onClick={() => navigate('/hoje')}><CircularProgressbar value={(hojeFeitos.length / hojeTotal)*100} text="Hoje" strokeWidth='10'
+            <button data-test="today" onClick={() => navigate('/hoje')}><CircularProgressbar value={(Feito.length / diaFeito)*100} text="Hoje" strokeWidth='10'
             styles={buildStyles({
                 rotation: 0,
                 strokeLinecap: 'round',

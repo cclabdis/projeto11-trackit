@@ -6,7 +6,7 @@ import Habitos from "./Pages/Habitos/Habitos";
 import Historico from "./Pages/Historico/Historico";
 
 import AppProvider from "./AppContext/Provider";
-import GlobalStyle from "./Reset";
+import GlobalStyle from "./GlobalStyle";
 
 export default function App() {
   return (
@@ -28,3 +28,5 @@ export default function App() {
 }
 
 ///ocorre header invalido quando esta deslogado
+
+//Localstorage

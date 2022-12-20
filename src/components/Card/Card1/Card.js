@@ -11,20 +11,20 @@ import {Container, CheckBt, Pontos, Div1, Record} from "./Card.styled";
 export default function Card(props){
     const [loading, setLoading] = useState(false)
     const {config} = useContext(AppContext)
-    const {setReloadH} = useContext(AppContext)
-    const {reloadH} = useContext(AppContext)
-    const {setHojeFeitos} = useContext(AppContext)
-    const {hojeFeitos} = useContext(AppContext)
-    if(props.done && !hojeFeitos.includes(props.id)){
-        setHojeFeitos([...hojeFeitos, props.id])
+    const {setreloadHoje} = useContext(AppContext)
+    const {reloadHoje} = useContext(AppContext)
+    const {setFeito} = useContext(AppContext)
+    const {Feito} = useContext(AppContext)
+    if(props.done && !Feito.includes(props.id)){
+        setFeito([...Feito, props.id])
     }
-    if(!props.done && hojeFeitos.includes(props.id)){
-        const rer = hojeFeitos.filter(j => j!==props.id)
-         setHojeFeitos(rer)
+    if(!props.done && Feito.includes(props.id)){
+        const rer = Feito.filter(j => j!==props.id)
+         setFeito(rer)
     }
     function succes(){
         setLoading(false)
-        setReloadH(reloadH+1)
+        setreloadHoje(reloadHoje+1)
     }
     function fail(e){
         setLoading(false)
