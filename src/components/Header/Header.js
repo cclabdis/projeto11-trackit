@@ -8,4 +8,3 @@ export default function Header(){
         <Bar data-test="header"><h1>TrackIt</h1><img src={obj.image} alt='usuario'/></Bar>
     )
 }
-

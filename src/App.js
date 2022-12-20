@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./Pages/Login";
-import Cadastro from "./Pages/Cadastro";
-import Hoje from "./Pages/Hoje";
-import Habitos from "./Pages/Habitos";
-import Historico from "./Pages/Historico";
+import Login from "./Pages/Login/Login";
+import Cadastro from "./Pages/Cadastro/Cadastro";
+import Hoje from "./Pages/Hoje/Hoje";
+import Habitos from "./Pages/Habitos/Habitos";
+import Historico from "./Pages/Historico/Historico";
 
 import AppProvider from "./AppContext/Provider";
 import GlobalStyle from "./Reset";
@@ -27,3 +27,4 @@ export default function App() {
   );
 }
 
+///ocorre header invalido quando esta deslogado

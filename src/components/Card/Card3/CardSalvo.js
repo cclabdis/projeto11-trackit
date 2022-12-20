@@ -61,6 +61,8 @@ export default function CardSalvo(){
         <DivSemana>
             <input data-test="habit-name-input" disabled={loading} type='text' value={nomeH} onChange={(e) => setnomeH(e.target.value)} placeholder='nome do hábito'/>
             <div>
+
+
                 <Dia data-test="habit-day" disabled={loading} clicado={dias.includes(0)} onClick={() => salvarDia(0)}>D</Dia>
                 <Dia data-test="habit-day" disabled={loading} clicado={dias.includes(1)} onClick={() => salvarDia(1)}>S</Dia>
                 <Dia data-test="habit-day" disabled={loading} clicado={dias.includes(2)} onClick={() => salvarDia(2)}>T</Dia>
